@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TutorsRouteImport } from './routes/tutors'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -16,6 +17,11 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 
+const TutorsRoute = TutorsRouteImport.update({
+  id: '/tutors',
+  path: '/tutors',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
@@ -53,6 +59,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRoute
   '/pricing': typeof PricingRoute
+  '/tutors': typeof TutorsRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesByTo {
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRoute
   '/pricing': typeof PricingRoute
+  '/tutors': typeof TutorsRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRoutesById {
@@ -70,13 +78,28 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRoute
   '/pricing': typeof PricingRoute
+  '/tutors': typeof TutorsRoute
   '/api/chat': typeof ApiChatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/courses' | '/pricing' | '/api/chat'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/courses'
+    | '/pricing'
+    | '/tutors'
+    | '/api/chat'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/courses' | '/pricing' | '/api/chat'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/courses'
+    | '/pricing'
+    | '/tutors'
+    | '/api/chat'
   id:
     | '__root__'
     | '/'
@@ -84,6 +107,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/courses'
     | '/pricing'
+    | '/tutors'
     | '/api/chat'
   fileRoutesById: FileRoutesById
 }
@@ -93,11 +117,19 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRoute
   PricingRoute: typeof PricingRoute
+  TutorsRoute: typeof TutorsRoute
   ApiChatRoute: typeof ApiChatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tutors': {
+      id: '/tutors'
+      path: '/tutors'
+      fullPath: '/tutors'
+      preLoaderRoute: typeof TutorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pricing': {
       id: '/pricing'
       path: '/pricing'
@@ -149,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CoursesRoute: CoursesRoute,
   PricingRoute: PricingRoute,
+  TutorsRoute: TutorsRoute,
   ApiChatRoute: ApiChatRoute,
 }
 export const routeTree = rootRouteImport
