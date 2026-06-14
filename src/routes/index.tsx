@@ -175,6 +175,18 @@ function Index() {
         </div>
       </div>
 
+      {/* MEET THE TEAM */}
+      <section className="meet-team-section">
+        <div className="s-inner meet-team-inner">
+          <div>
+            <span className="eyebrow">Our Tutors</span>
+            <h2 className="meet-team-title">Meet the team teaching tomorrow's tech skills</h2>
+            <p className="meet-team-sub">Founders, developers, designers and digital marketers — get to know the experts behind every class.</p>
+          </div>
+          <Link to="/tutors" className="btn-primary">Meet the Team →</Link>
+        </div>
+      </section>
+
       {/* CTA */}
       <div className="cta-banner">
         <h2>Ready to start your<br /><span style={{ color: "var(--green)" }}>tech journey?</span></h2>

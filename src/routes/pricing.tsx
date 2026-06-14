@@ -6,17 +6,29 @@ export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
       { title: "Pricing — Glass Nexus Academy" },
-      { name: "description", content: "Affordable course enrollment fees and technical bundle plans. FAQs on virtual and physical classes." },
+      { name: "description", content: "Monthly course fees for Python, Web Design, Cyber Security, UI/UX & Video Editing, plus ₦12,000/month O-Level and JAMB online prep." },
     ],
   }),
   component: Pricing,
 });
 
 const FAQS = [
-  { q: "How do virtual interactive classes work?", a: "Our virtual sessions are hosted live on Zoom or Google Meet. Students can ask questions in real-time. If you miss a class, recorded backups are uploaded to the student portal within 2 hours." },
-  { q: "Can I split payments into convenient installments?", a: "Yes. We offer payment splitting structures (such as 50% initial and 50% midway) via direct bank transfer or Paystack." },
-  { q: "Do you offer physical classes or consulting in Ogun State?", a: "Yes. We run physical practical classes at our training center in Ijebu-Ode, Ogun State, equipped with modern computer systems and technical repair benches." },
-  { q: "What kind of computer hardware services do you provide?", a: "We refurbish and sell professional laptops and desktops, and provide certified hardware repair (diagnostics, screen swaps, RAM expansions, battery replacements)." },
+  { q: "How do online classes work?", a: "Classes run live on Zoom or Google Meet. You can ask questions in real time. If you miss a class, recorded backups are uploaded to the student portal within 2 hours." },
+  { q: "Can I split my payment?", a: "Yes. We offer payment splitting (e.g. 50% upfront and 50% mid-month) via bank transfer, Flutterwave or Paystack." },
+  { q: "Do you run physical classes in Ogun State?", a: "Yes — our physical lab is in Ijebu-Ode, Ogun State, with modern computers and a hardware repair bench." },
+  { q: "What hardware services do you offer?", a: "We sell refurbished professional laptops/desktops and provide certified repairs (diagnostics, screen replacements, RAM, batteries and more)." },
+];
+
+const wa = (msg: string) => `https://wa.me/2349154338312?text=${encodeURIComponent(msg)}`;
+
+type Plan = { name: string; price: string; per: string; desc: string; feats: string[]; featured?: boolean; msg: string };
+const PLANS: Plan[] = [
+  { name: "Python Programming", price: "₦15,000", per: "/ month", desc: "Basic Python — 4 classes per week.", feats: ["4 classes / week", "Beginner-friendly modules", "Projects + certificate"], msg: "Hi, I'd like to enrol in Python Programming." },
+  { name: "Web Design — Frontend", price: "₦15,000", per: "/ month", desc: "HTML, CSS, React — 60 mins per class.", feats: ["HTML · CSS · React", "Responsive design", "Portfolio projects"], featured: true, msg: "Hi, I'd like to enrol in Frontend Web Design." },
+  { name: "Web Design — Backend", price: "₦20,000", per: "/ month", desc: "PHP & MySQL — 60 mins per class.", feats: ["PHP fundamentals", "MySQL & databases", "Dynamic web apps"], msg: "Hi, I'd like to enrol in Backend Web Design (PHP)." },
+  { name: "UI/UX & Video Editing", price: "₦18,000", per: "/ month", desc: "Figma + professional video editing.", feats: ["Figma & design systems", "Premiere / CapCut", "Client-style projects"], msg: "Hi, I'd like to enrol in UI/UX & Video Editing." },
+  { name: "Cyber Security", price: "₦30,000", per: "/ month", desc: "Practical cyber security — 60 mins per class.", feats: ["Network safety", "Threat detection basics", "Hands-on labs"], msg: "Hi, I'd like to enrol in Cyber Security." },
+  { name: "O-Level / JAMB Online", price: "₦12,000", per: "/ month", desc: "WAEC · NECO · GCE · JAMB — online for SS1–SS3.", feats: ["Maths, English, F-Maths, ICT…", "Live online classes", "All exam boards covered"], msg: "Hi, I'm interested in the O-Level/JAMB online classes at Glass Nexus Academy." },
 ];
 
 function Pricing() {
@@ -26,55 +38,32 @@ function Pricing() {
       <section className="page-hero">
         <div className="hero-bg" />
         <div className="s-inner" style={{ paddingTop: "5rem" }}>
-          <span className="eyebrow">Affordable plans</span>
-          <h1 className="s-title">Simple & Transparent Pricing</h1>
-          <p className="s-sub">Competitive pricing for all our technical course tracks. Pick the plan that matches your training goal.</p>
+          <span className="eyebrow">Monthly course pricing</span>
+          <h1 className="s-title">Simple &amp; Transparent Pricing</h1>
+          <p className="s-sub">Monthly fees per course. Pay via bank transfer, Flutterwave or Paystack. Payment splitting available.</p>
         </div>
       </section>
 
       <section style={{ background: "var(--dark)" }}>
         <div className="s-inner">
-          <div className="pricing-grid">
-            <div className="p-card">
-              <div className="p-name">Basic</div>
-              <div className="p-price">₦20,000 <span>/ course</span></div>
-              <p className="p-desc">Perfect for learning one skill at your own pace.</p>
-              <div className="p-divider" />
-              <div className="p-feats">
-                {["1 course track", "Study materials included", "Certificate of completion", "Weekend classes available"].map((f) => (
-                  <div className="p-feat" key={f}><i className="ti ti-check" /> {f}</div>
-                ))}
+          <div className="pricing-grid pricing-grid-wide">
+            {PLANS.map((p) => (
+              <div className={`p-card${p.featured ? " featured" : ""}`} key={p.name}>
+                {p.featured && <span className="p-badge">Most popular</span>}
+                <div className="p-name">{p.name}</div>
+                <div className="p-price">{p.price} <span>{p.per}</span></div>
+                <p className="p-desc">{p.desc}</p>
+                <div className="p-divider" />
+                <div className="p-feats">
+                  {p.feats.map((f) => (
+                    <div className="p-feat" key={f}><i className="ti ti-check" /> {f}</div>
+                  ))}
+                </div>
+                <a href={wa(p.msg)} target="_blank" rel="noopener" className={`p-btn${p.featured ? "" : " out"}`}>Enrol now</a>
               </div>
-              <Link to="/contact" className="p-btn out">Enrol now</Link>
-            </div>
-
-            <div className="p-card featured">
-              <span className="p-badge">Most popular</span>
-              <div className="p-name">Standard</div>
-              <div className="p-price">₦35,000 <span>/ course</span></div>
-              <p className="p-desc">Structured learning with mentorship and project work.</p>
-              <div className="p-divider" />
-              <div className="p-feats">
-                {["1 course track", "Study materials included", "Certificate of completion", "1-on-1 mentorship sessions", "Project-based assessment"].map((f) => (
-                  <div className="p-feat" key={f}><i className="ti ti-check" /> {f}</div>
-                ))}
-              </div>
-              <Link to="/contact" className="p-btn">Enrol now</Link>
-            </div>
-
-            <div className="p-card">
-              <div className="p-name">Premium</div>
-              <div className="p-price">₦85,000 <span>/ bundle</span></div>
-              <p className="p-desc">Access multiple course tracks and the full academy experience.</p>
-              <div className="p-divider" />
-              <div className="p-feats">
-                {["Up to 3 course tracks", "All materials included", "Certificate of completion", "Priority mentorship", "Job placement support"].map((f) => (
-                  <div className="p-feat" key={f}><i className="ti ti-check" /> {f}</div>
-                ))}
-              </div>
-              <Link to="/contact" className="p-btn out">Enrol now</Link>
-            </div>
+            ))}
           </div>
+          <p className="services-pay-note">💳 Payments accepted online via Flutterwave / Paystack</p>
         </div>
       </section>
 
@@ -83,7 +72,7 @@ function Pricing() {
           <div className="sec-wrap">
             <span className="sec-chip">Got Questions?</span>
             <h2 className="sec-title">Frequently Asked Questions</h2>
-            <p className="sec-sub">Find quick answers about our sessions, classes, and computer services</p>
+            <p className="sec-sub">Quick answers about classes, payments and our tech services</p>
           </div>
           <div className="faq-grid">
             {FAQS.map((f, i) => (
