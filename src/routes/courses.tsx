@@ -4,8 +4,8 @@ import { SiteLayout } from "@/components/SiteLayout";
 export const Route = createFileRoute("/courses")({
   head: () => ({
     meta: [
-      { title: "Courses — Glass Nexus Academy" },
-      { name: "description", content: "Explore technical course tracks in Python, Web Development, Data Analysis, Hardware Repair, Microsoft Office, AI Automation, and Cybersecurity." },
+      { title: "Courses & Services — Glass Nexus Academy" },
+      { name: "description", content: "Tech course tracks (Python, Web Design, Cyber Security, UI/UX, Video Editing), O-Level & JAMB online classes, and freelance services." },
     ],
   }),
   component: Courses,
@@ -13,23 +13,107 @@ export const Route = createFileRoute("/courses")({
 
 type Course = {
   name: string; desc: string; icon: string; iconBg: string; iconColor: string;
-  features: string[]; price?: string;
+  features: string[]; price: string; sub: string; whatsappMsg: string;
 };
 
-const PROG: Course[] = [
-  { name: "Python Programming", desc: "From basic syntax to OOP. Build backend scripts, automate tasks, and lay foundations for data engineering.", icon: "ti-brand-python", iconBg: "rgba(24,95,165,0.15)", iconColor: "#5BA4F5", features: ["12-week intensive track", "Beginner-friendly modules", "Certificate of completion"] },
-  { name: "Web Development", desc: "Learn HTML5, CSS3, and JavaScript to build modern responsive websites. Create client portfolios and master hosting pipelines.", icon: "ti-world", iconBg: "var(--green-soft)", iconColor: "var(--green)", features: ["Real-world responsive designs", "Interactive JS assignments", "Web hosting & domains setup"] },
-  { name: "Data Analysis", desc: "Learn to clean, analyze, and visualize data using Advanced Excel and Basic SQL. Highly valued by businesses.", icon: "ti-chart-bar", iconBg: "rgba(83,74,183,0.15)", iconColor: "#9B8FFF", features: ["Excel tables & advanced formulas", "SQL database query basics", "Data storytelling reports"] },
-];
+const wa = (msg: string) => `https://wa.me/2349154338312?text=${encodeURIComponent(msg)}`;
 
 const TECH: Course[] = [
-  { name: "Hardware & Repairs", desc: "Practical diagnostics, maintenance, and repair training for desktop computers, laptops, and mobile smartphones.", icon: "ti-cpu", iconBg: "rgba(186,117,23,0.15)", iconColor: "#F5C542", features: ["100% practical lab workouts", "Learn tool safety & testing", "Troubleshooting & part swaps"] },
-  { name: "Microsoft Office", desc: "Office operations mastery. Learn Word document styling, Excel worksheets, PowerPoint templates, and Outlook emails.", icon: "ti-file-text", iconBg: "rgba(153,53,86,0.15)", iconColor: "#FF7FA6", features: ["Formatting & writing templates", "Calculations & spreadsheet tables", "Professional presentation slides"] },
-  { name: "AI & Automation", desc: "Learn to automate repetitive office tasks using ChatGPT prompts, build custom templates, and write simple automation scripts.", icon: "ti-brain", iconBg: "rgba(14,165,233,0.08)", iconColor: "var(--green)", features: ["Prompt engineering secrets", "AI tools integration audits", "Task auto-routines scripting"] },
+  {
+    name: "Python Programming (Basic)",
+    desc: "Build a strong foundation in Python — variables, logic, functions, OOP and small automation scripts.",
+    icon: "ti-brand-python", iconBg: "rgba(24,95,165,0.15)", iconColor: "#5BA4F5",
+    features: ["4 classes per week", "Beginner-friendly", "Hands-on mini projects"],
+    price: "₦15,000 / month", sub: "4 classes/week",
+    whatsappMsg: "Hi, I'm interested in the Python Programming course at Glass Nexus Academy.",
+  },
+  {
+    name: "Web Design — Frontend",
+    desc: "HTML, CSS and React. Build responsive, modern websites and a real portfolio of projects.",
+    icon: "ti-world", iconBg: "var(--green-soft)", iconColor: "var(--green)",
+    features: ["HTML · CSS · React", "Responsive design", "Portfolio projects"],
+    price: "₦15,000 / month", sub: "60 mins / class",
+    whatsappMsg: "Hi, I'm interested in the Frontend Web Design course at Glass Nexus Academy.",
+  },
+  {
+    name: "Web Design — Backend (PHP)",
+    desc: "Server-side PHP development, working with databases, building dynamic websites and admin panels.",
+    icon: "ti-server", iconBg: "rgba(83,74,183,0.15)", iconColor: "#9B8FFF",
+    features: ["PHP fundamentals", "MySQL databases", "Dynamic web apps"],
+    price: "₦20,000 / month", sub: "60 mins / class",
+    whatsappMsg: "Hi, I'm interested in the Backend Web Design (PHP) course at Glass Nexus Academy.",
+  },
+  {
+    name: "Cyber Security",
+    desc: "Practical cyber security — network safety, threat detection, encryption, password hygiene and best practices.",
+    icon: "ti-shield-lock", iconBg: "rgba(163,45,45,0.15)", iconColor: "#FF7070",
+    features: ["Network & device safety", "Threat detection basics", "Hands-on labs"],
+    price: "₦30,000 / month", sub: "60 mins / class",
+    whatsappMsg: "Hi, I'm interested in the Cyber Security course at Glass Nexus Academy.",
+  },
+  {
+    name: "UI/UX Design & Video Editing",
+    desc: "Design beautiful interfaces in Figma and create polished video content with professional editing tools.",
+    icon: "ti-palette", iconBg: "rgba(255,140,66,0.15)", iconColor: "#FF8C42",
+    features: ["Figma & design systems", "Premiere / CapCut", "Real client projects"],
+    price: "₦18,000 / month", sub: "60 mins / class",
+    whatsappMsg: "Hi, I'm interested in the UI/UX & Video Editing course at Glass Nexus Academy.",
+  },
+  {
+    name: "Data Analysis",
+    desc: "Clean, analyse and visualise data using Advanced Excel and basic SQL. In high demand across industries.",
+    icon: "ti-chart-bar", iconBg: "rgba(83,74,183,0.15)", iconColor: "#9B8FFF",
+    features: ["Advanced Excel", "SQL basics", "Data storytelling"],
+    price: "Contact for fee", sub: "Ask for schedule",
+    whatsappMsg: "Hi, I'm interested in the Data Analysis course at Glass Nexus Academy.",
+  },
+  {
+    name: "Hardware & Repairs",
+    desc: "Diagnose and repair PCs, laptops and smartphones. 100% practical lab training.",
+    icon: "ti-cpu", iconBg: "rgba(186,117,23,0.15)", iconColor: "#F5C542",
+    features: ["Diagnostics & testing", "Component swaps", "Repair business setup"],
+    price: "Contact for fee", sub: "Ask for schedule",
+    whatsappMsg: "Hi, I'm interested in the Hardware & Repairs course at Glass Nexus Academy.",
+  },
 ];
 
-const SEC: Course[] = [
-  { name: "Cybersecurity Basics", desc: "Learn network security, online threat prevention, malware protection, encryption keys, and safety habits for modern workplaces.", icon: "ti-shield-lock", iconBg: "rgba(163,45,45,0.15)", iconColor: "#FF7070", features: ["Passwords & identity safety", "Network threat audits", "Systems protection basics"] },
+type Service = { name: string; desc: string; price: string; icon: string; iconBg: string; iconColor: string; whatsappMsg: string };
+const SERVICES: Service[] = [
+  {
+    name: "Website Development",
+    desc: "Responsive websites built to convert — with basic content management and hosting set up.",
+    price: "Frontend ₦40,000 · Full stack ₦70,000",
+    icon: "ti-world-code", iconBg: "var(--green-soft)", iconColor: "var(--green)",
+    whatsappMsg: "Hi, I'd like a quote for Website Development from Glass Nexus Academy.",
+  },
+  {
+    name: "App Development",
+    desc: "Custom mobile and web applications tailored to your business or idea.",
+    price: "Starting from ₦50,000",
+    icon: "ti-device-mobile", iconBg: "rgba(24,95,165,0.15)", iconColor: "#5BA4F5",
+    whatsappMsg: "Hi, I'd like a quote for App Development from Glass Nexus Academy.",
+  },
+  {
+    name: "Dashboard Development",
+    desc: "Custom admin dashboards and data panels to run your business with clarity.",
+    price: "Quote-based",
+    icon: "ti-layout-dashboard", iconBg: "rgba(83,74,183,0.15)", iconColor: "#9B8FFF",
+    whatsappMsg: "Hi, I'd like a quote for a custom Dashboard from Glass Nexus Academy.",
+  },
+  {
+    name: "Database Design & Management",
+    desc: "Database setup, optimisation and ongoing management — including Snowflake and SQL.",
+    price: "Quote-based",
+    icon: "ti-database", iconBg: "rgba(14,165,233,0.10)", iconColor: "#0EA5E9",
+    whatsappMsg: "Hi, I'd like a quote for Database Design & Management from Glass Nexus Academy.",
+  },
+  {
+    name: "Video Editing & Content",
+    desc: "Professional video editing for YouTube, social media and brand content creation.",
+    price: "Quote-based",
+    icon: "ti-video", iconBg: "rgba(255,140,66,0.15)", iconColor: "#FF8C42",
+    whatsappMsg: "Hi, I'd like a quote for Video Editing & Content Creation from Glass Nexus Academy.",
+  },
 ];
 
 function CourseCard({ c }: { c: Course }) {
@@ -49,42 +133,96 @@ function CourseCard({ c }: { c: Course }) {
           ))}
         </ul>
       </div>
-      <div className="course-footer">
-        <span className="course-price">₦25,000 / course</span>
-        <Link to="/contact" className="course-action">Enrol now →</Link>
+      <div className="course-footer course-footer-stack">
+        <div>
+          <div className="course-price">{c.price}</div>
+          <div className="course-sub">{c.sub}</div>
+        </div>
+        <a href={wa(c.whatsappMsg)} target="_blank" rel="noopener" className="course-action-btn">Enrol now →</a>
       </div>
     </div>
   );
 }
 
 function Courses() {
+  const olevelMsg = "Hi, I'm interested in the O-Level/JAMB online classes at Glass Nexus Academy.";
+
   return (
     <SiteLayout>
       <section className="page-hero">
         <div className="hero-bg" />
         <div className="s-inner" style={{ paddingTop: "5rem" }}>
-          <span className="eyebrow">Expand your skillset</span>
-          <h1 className="s-title">Explore Our Course Tracks</h1>
-          <p className="s-sub">We offer highly practical, project-based classes designed to teach you skills that are in high demand in Nigeria and globally.</p>
+          <span className="eyebrow">Courses & Services</span>
+          <h1 className="s-title">Tech Courses, Exam Prep & Freelance Services</h1>
+          <p className="s-sub">Practical monthly course tracks, online O-Level &amp; JAMB classes for SS students, and professional tech services for businesses.</p>
         </div>
       </section>
 
+      {/* TECH COURSES */}
       <section style={{ background: "var(--dark)" }}>
         <div className="s-inner">
-          <h2 className="courses-category-title">Programming & Analytics Pathways</h2>
-          <div className="courses-grid">{PROG.map((c) => <CourseCard c={c} key={c.name} />)}</div>
-
-          <h2 className="courses-category-title" style={{ marginTop: "3rem" }}>Technical Skills & Digital Literacy</h2>
+          <h2 className="courses-category-title">Tech Course Tracks</h2>
           <div className="courses-grid">{TECH.map((c) => <CourseCard c={c} key={c.name} />)}</div>
+        </div>
+      </section>
 
-          <h2 className="courses-category-title" style={{ marginTop: "3rem" }}>Security & Specialized Tracks</h2>
-          <div className="courses-grid">{SEC.map((c) => <CourseCard c={c} key={c.name} />)}</div>
+      {/* O-LEVEL BANNER */}
+      <section className="olevel-section">
+        <div className="s-inner">
+          <div className="olevel-card">
+            <div className="olevel-left">
+              <span className="olevel-chip">Online · SS1 · SS2 · SS3</span>
+              <h2 className="olevel-title">Ace Your Exams — O-Level &amp; JAMB Online Classes from ₦12,000/month</h2>
+              <p className="olevel-sub">Live online prep classes for WAEC, NECO, GCE and JAMB (UTME). Subjects covered: Mathematics, English, Further Mathematics, ICT and more.</p>
+              <div className="olevel-grid">
+                {[
+                  { ex: "WAEC", d: "Preparation" },
+                  { ex: "NECO", d: "Preparation" },
+                  { ex: "GCE", d: "Preparation" },
+                  { ex: "JAMB", d: "UTME Prep" },
+                ].map((x) => (
+                  <div className="olevel-pill" key={x.ex}>
+                    <div className="olevel-pill-top">{x.ex}</div>
+                    <div className="olevel-pill-sub">{x.d}</div>
+                    <div className="olevel-pill-price">₦12,000/mo</div>
+                  </div>
+                ))}
+              </div>
+              <p className="olevel-note">Available for SS1, SS2 &amp; SS3 students. Classes held online via video call. We also help with educational advice and school subject registrations.</p>
+              <a href={wa(olevelMsg)} target="_blank" rel="noopener" className="btn-glow olevel-cta">Enrol now on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FREELANCE SERVICES */}
+      <section style={{ background: "var(--dark)" }}>
+        <div className="s-inner">
+          <div className="sec-wrap" style={{ paddingTop: 0 }}>
+            <span className="sec-chip">Freelance & Tech Services</span>
+            <h2 className="sec-title">Beyond Training — We Build For You</h2>
+            <p className="sec-sub">From websites to dashboards and content creation, our team delivers production-grade work for individuals and businesses.</p>
+          </div>
+          <div className="services-grid">
+            {SERVICES.map((s) => (
+              <div className="service-card" key={s.name}>
+                <div className="service-icon" style={{ background: s.iconBg, color: s.iconColor }}>
+                  <i className={`ti ${s.icon}`} />
+                </div>
+                <h3 className="service-name">{s.name}</h3>
+                <p className="service-desc">{s.desc}</p>
+                <div className="service-price">{s.price}</div>
+                <a href={wa(s.whatsappMsg)} target="_blank" rel="noopener" className="service-cta">Request a Quote →</a>
+              </div>
+            ))}
+          </div>
+          <p className="services-pay-note">💳 Payments accepted online via Flutterwave / Paystack</p>
         </div>
       </section>
 
       <div className="cta-banner">
         <h2>Confused about the right track?</h2>
-        <p>Talk to our advisors. We'll help match your career goals to the ideal track.</p>
+        <p>Talk to our advisors. We'll help match your career goals to the ideal course or service.</p>
         <Link className="btn-glow" to="/contact">Talk to an Advisor</Link>
       </div>
     </SiteLayout>
