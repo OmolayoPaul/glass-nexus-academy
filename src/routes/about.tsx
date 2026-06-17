@@ -14,7 +14,7 @@ export const Route = createFileRoute("/about")({
 const TESTIS = [
   { initials: "AO", name: "Adewale Okafor", role: "Python Graduate · Ogun State", text: "Glass Nexus Academy changed my life. I came in knowing nothing about coding and left with real Python skills. The trainers are patient and very knowledgeable." },
   { initials: "FA", name: "Funke Adeyemi", role: "Web Dev Graduate · Lagos State", text: "I enrolled for the Web Development track and now I freelance for clients. The practical approach made everything click. Highly recommend!" },
-  { initials: "EB", name: "Emmanuel Bello", role: "Hardware Graduate · Ijebu-Ode", text: "The hardware repair course was worth every kobo. I now run my own phone repair business after just 8 weeks of training at Glass Nexus." },
+  { initials: "EB", name: "Emmanuel Bello", role: "Hardware Graduate · Ikorodu", text: "The hardware repair course was worth every kobo. I now run my own phone repair business after just 8 weeks of training at Glass Nexus." },
   { initials: "NN", name: "Ngozi Nwosu", role: "Office Graduate · Abeokuta", text: "Microsoft Office training here is very thorough. My employer was impressed with my Excel and PowerPoint skills." },
 ];
 
@@ -36,7 +36,7 @@ function About() {
             <div className="about-intro-text">
               <span className="eyebrow">Who We Are</span>
               <h2 className="s-title" style={{ fontSize: "2.2rem", marginBottom: "1.25rem" }}>Practical Training First</h2>
-              <p>Glass Nexus Academy was founded on a simple principle: tech education should be practical, affordable, and results-oriented. From our training center in Ijebu-Ode, Ogun State, we provide certification courses that equip students with skills they can use to build careers and scale brands.</p>
+              <p>Glass Nexus Academy was founded on a simple principle: tech education should be practical, affordable, and results-oriented. From our training center in Ikorodu, Lagos, we provide certification courses that equip students with skills they can use to build careers and scale brands.</p>
               <p>Whether programming in Python, designing responsive websites, executing data models, or diagnosing hardware systems, our students learn by doing. Every course features real-world project builds and direct mentor feedback.</p>
             </div>
             <div className="about-features-panel">

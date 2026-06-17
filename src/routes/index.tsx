@@ -6,7 +6,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Glass Nexus Academy | Tech Training Centre" },
-      { name: "description", content: "Professional tech training in Python, Web Development, Data Analysis, Hardware Repair, AI & Cybersecurity. Ijebu-Ode, Ogun State." },
+      { name: "description", content: "Professional tech training in Python, Web Development, Data Analysis, Hardware Repair, AI & Cybersecurity. Ikorodu, Lagos, Nigeria." },
     ],
   }),
   component: Index,
@@ -54,7 +54,7 @@ function Index() {
           <div className="hero-content">
             <div className="hero-badge">
               <span className="pulse" />
-              Now enrolling — Ijebu-Ode, Ogun State
+              Now enrolling — Ikorodu, Lagos
             </div>
             <h1>
               Build Real<br />
