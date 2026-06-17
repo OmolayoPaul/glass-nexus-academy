@@ -5,8 +5,16 @@ export const Route = createFileRoute("/courses")({
   head: () => ({
     meta: [
       { title: "Courses & Services — Glass Nexus Academy" },
-      { name: "description", content: "Tech course tracks (Python, Web Design, Cyber Security, UI/UX, Video Editing), O-Level & JAMB online classes, and freelance services." },
+      { name: "description", content: "Tech course tracks (Python, Web Design, Cyber Security, UI/UX, Video Editing), O-Level & JAMB online classes, and freelance services in Ijebu-Ode." },
+      { property: "og:title", content: "Courses & Services — Glass Nexus Academy" },
+      { property: "og:description", content: "Tech courses, O-Level & JAMB online classes, and freelance dev services. Hands-on training in Ijebu-Ode, Ogun State." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://glass-nexus-academy.lovable.app/courses" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Courses & Services — Glass Nexus Academy" },
+      { name: "twitter:description", content: "Tech courses, O-Level & JAMB online classes, and freelance dev services." },
     ],
+    links: [{ rel: "canonical", href: "https://glass-nexus-academy.lovable.app/courses" }],
   }),
   component: Courses,
 });
