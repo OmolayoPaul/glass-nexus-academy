@@ -8,7 +8,7 @@ export function Footer() {
         Glass <span>Nexus</span> Academy
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        <p>© {new Date().getFullYear()} Glass Nexus Academy · Ijebu-Ode, Ogun State, Nigeria</p>
+        <p>© {new Date().getFullYear()} Glass Nexus Academy · Ikorodu, Lagos, Nigeria</p>
         <p style={{ fontSize: 12, color: "var(--text-dim)" }}>All rights reserved</p>
       </div>
       <ul className="f-links">

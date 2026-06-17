@@ -5,9 +5,9 @@ export const Route = createFileRoute("/courses")({
   head: () => ({
     meta: [
       { title: "Courses & Services — Glass Nexus Academy" },
-      { name: "description", content: "Tech course tracks (Python, Web Design, Cyber Security, UI/UX, Video Editing), O-Level & JAMB online classes, and freelance services in Ijebu-Ode." },
+      { name: "description", content: "Tech course tracks (Python, Web Design, Cyber Security, UI/UX, Video Editing, Computer Operations), O-Level & JAMB online classes, and freelance services in Ikorodu, Lagos." },
       { property: "og:title", content: "Courses & Services — Glass Nexus Academy" },
-      { property: "og:description", content: "Tech courses, O-Level & JAMB online classes, and freelance dev services. Hands-on training in Ijebu-Ode, Ogun State." },
+      { property: "og:description", content: "Tech courses, O-Level & JAMB online classes, and freelance dev services. Hands-on training in Ikorodu, Lagos, Nigeria." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://glass-nexus-academy.lovable.app/courses" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -31,9 +31,17 @@ const TECH: Course[] = [
     name: "Python Programming (Basic)",
     desc: "Build a strong foundation in Python — variables, logic, functions, OOP and small automation scripts.",
     icon: "ti-brand-python", iconBg: "rgba(24,95,165,0.15)", iconColor: "#5BA4F5",
-    features: ["4 classes per week", "Beginner-friendly", "Hands-on mini projects"],
-    price: "₦15,000 / month", sub: "4 classes/week",
+    features: ["1 class per week", "Beginner-friendly", "Hands-on mini projects"],
+    price: "₦15,000 / month", sub: "1 class/week",
     whatsappMsg: "Hi, I'm interested in the Python Programming course at Glass Nexus Academy.",
+  },
+  {
+    name: "Computer Operations (Microsoft Packages)",
+    desc: "Master computer fundamentals and Microsoft Office — Word, Excel, PowerPoint — with real practical tasks.",
+    icon: "ti-device-desktop", iconBg: "rgba(14,165,233,0.15)", iconColor: "#0EA5E9",
+    features: ["1 class per week + 1 practical class", "Word · Excel · PowerPoint", "Beginner-friendly"],
+    price: "₦15,000 / month", sub: "1 class/week + 1 practical",
+    whatsappMsg: "Hi, I'm interested in the Computer Operations (Microsoft Packages) course at Glass Nexus Academy.",
   },
   {
     name: "Web Design — Frontend",

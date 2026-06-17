@@ -44,9 +44,9 @@ function Contact() {
               <p>We're available to answer your questions about enrolment, schedules, and course content.</p>
 
               {[
-                { icon: "ti-map-pin", lbl: "Address", val: <>Ijebu-Ode, Ogun State, Nigeria</> },
-                { icon: "ti-brand-whatsapp", lbl: "WhatsApp", val: <a href="https://wa.me/2349154338312" target="_blank" rel="noopener">09154338312</a> },
-                { icon: "ti-mail", lbl: "Email", val: <a href="mailto:info@glassnexusacademy.com">info@glassnexusacademy.com</a> },
+                { icon: "ti-map-pin", lbl: "Address", val: <>Ikorodu, Lagos, Nigeria</> },
+                { icon: "ti-brand-whatsapp", lbl: "WhatsApp", val: <><a href="https://wa.me/2349154338312" target="_blank" rel="noopener">09154338312</a>{" · "}<a href="https://wa.me/2348102434954" target="_blank" rel="noopener">08102434954</a></> },
+                { icon: "ti-mail", lbl: "Email", val: <a href="mailto:glassnexusacademy@gmail.com">glassnexusacademy@gmail.com</a> },
                 { icon: "ti-clock", lbl: "Office hours", val: <>Mon – Sat, 8am – 5pm</> },
               ].map((item) => (
                 <div className="c-item" key={item.lbl}>
@@ -61,7 +61,7 @@ function Contact() {
               <div className="contact-map-mock">
                 <div className="map-glow" />
                 <div className="map-pin">📍</div>
-                <span className="map-text">Ijebu-Ode, Ogun State</span>
+                <span className="map-text">Ikorodu, Lagos</span>
               </div>
             </div>
 
@@ -95,7 +95,7 @@ function Contact() {
                       <option value="webdev">Web Development</option>
                       <option value="data">Data Analysis</option>
                       <option value="hardware">Hardware & Repairs</option>
-                      <option value="office">Microsoft Office</option>
+                      <option value="office">Computer Operations (Microsoft Packages)</option>
                       <option value="ai">AI & Automation</option>
                       <option value="cyber">Cybersecurity Basics</option>
                     </select>

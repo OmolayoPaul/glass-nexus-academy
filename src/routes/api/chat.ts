@@ -4,7 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { convertToModelMessages, streamText, tool, stepCountIs, type UIMessage } from "ai";
 import { z } from "zod";
 
-const SYSTEM_PROMPT = `You are "Nexa", the friendly AI assistant for Glass Nexus Academy — a tech training centre in Ijebu-Ode, Ogun State, Nigeria.
+const SYSTEM_PROMPT = `You are "Nexa", the friendly AI assistant for Glass Nexus Academy — a tech training centre in Ikorodu, Lagos, Nigeria. Contact: WhatsApp 09154338312 / 08102434954, email glassnexusacademy@gmail.com.
 
 Your job:
 - Answer questions about courses, pricing, schedules, tutors, and the academy.
@@ -15,7 +15,8 @@ Your job:
 Be warm, concise, and practical. Use short paragraphs and bullet points.
 
 == TECH COURSES (monthly fees) ==
-- Python Programming (Basic) — ₦15,000/month, 4 classes/week.
+- Python Programming (Basic) — ₦15,000/month, 1 class/week.
+- Computer Operations (Microsoft Packages: Word, Excel, PowerPoint) — ₦15,000/month, 1 class/week + 1 practical class/week.
 - Web Design Frontend (HTML, CSS, React) — ₦15,000/month, 60 mins/class.
 - Web Design Backend (PHP) — ₦20,000/month, 60 mins/class.
 - Cyber Security — ₦30,000/month, 60 mins/class.
@@ -44,7 +45,7 @@ Be warm, concise, and practical. Use short paragraphs and bullet points.
 - More tutors joining soon.
 
 == CLASSES ==
-- Both virtual (Zoom / Google Meet, live, recorded backups within 2h) and physical (Ijebu-Ode lab).
+- Both virtual (Zoom / Google Meet, live, recorded backups within 2h) and physical (Ikorodu, Lagos lab).
 - Office hours: Mon–Sat 8am–5pm.
 - Payment splitting available via bank transfer, Flutterwave or Paystack.
 
@@ -111,7 +112,7 @@ export const Route = createFileRoute("/api/chat")({
                   return {
                     ok: false,
                     message:
-                      "Could not save the lead right now. Please use WhatsApp 09154338312 or the contact page.",
+                      "Could not save the lead right now. Please use WhatsApp 09154338312 / 08102434954 or email glassnexusacademy@gmail.com.",
                   };
                 }
               },

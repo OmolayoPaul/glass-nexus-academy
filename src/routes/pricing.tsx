@@ -23,7 +23,7 @@ export const Route = createFileRoute("/pricing")({
 const FAQS = [
   { q: "How do online classes work?", a: "Classes run live on Zoom or Google Meet. You can ask questions in real time. If you miss a class, recorded backups are uploaded to the student portal within 2 hours." },
   { q: "Can I split my payment?", a: "Yes. We offer payment splitting (e.g. 50% upfront and 50% mid-month) via bank transfer, Flutterwave or Paystack." },
-  { q: "Do you run physical classes in Ogun State?", a: "Yes — our physical lab is in Ijebu-Ode, Ogun State, with modern computers and a hardware repair bench." },
+  { q: "Do you run physical classes?", a: "Yes — our physical lab is in Ikorodu, Lagos State, with modern computers and a hardware repair bench." },
   { q: "What hardware services do you offer?", a: "We sell refurbished professional laptops/desktops and provide certified repairs (diagnostics, screen replacements, RAM, batteries and more)." },
 ];
 
@@ -31,7 +31,8 @@ const wa = (msg: string) => `https://wa.me/2349154338312?text=${encodeURICompone
 
 type Plan = { name: string; price: string; per: string; desc: string; feats: string[]; featured?: boolean; msg: string };
 const PLANS: Plan[] = [
-  { name: "Python Programming", price: "₦15,000", per: "/ month", desc: "Basic Python — 4 classes per week.", feats: ["4 classes / week", "Beginner-friendly modules", "Projects + certificate"], msg: "Hi, I'd like to enrol in Python Programming." },
+  { name: "Python Programming", price: "₦15,000", per: "/ month", desc: "Basic Python — 1 class per week.", feats: ["1 class / week", "Beginner-friendly modules", "Projects + certificate"], msg: "Hi, I'd like to enrol in Python Programming." },
+  { name: "Computer Operations", price: "₦15,000", per: "/ month", desc: "Microsoft Office packages — 1 class + 1 practical per week.", feats: ["Word · Excel · PowerPoint", "1 class + 1 practical / week", "Beginner-friendly"], msg: "Hi, I'd like to enrol in Computer Operations (Microsoft Packages)." },
   { name: "Web Design — Frontend", price: "₦15,000", per: "/ month", desc: "HTML, CSS, React — 60 mins per class.", feats: ["HTML · CSS · React", "Responsive design", "Portfolio projects"], featured: true, msg: "Hi, I'd like to enrol in Frontend Web Design." },
   { name: "Web Design — Backend", price: "₦20,000", per: "/ month", desc: "PHP & MySQL — 60 mins per class.", feats: ["PHP fundamentals", "MySQL & databases", "Dynamic web apps"], msg: "Hi, I'd like to enrol in Backend Web Design (PHP)." },
   { name: "UI/UX & Video Editing", price: "₦18,000", per: "/ month", desc: "Figma + professional video editing.", feats: ["Figma & design systems", "Premiere / CapCut", "Client-style projects"], msg: "Hi, I'd like to enrol in UI/UX & Video Editing." },
