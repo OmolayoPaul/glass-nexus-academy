@@ -8,7 +8,13 @@ export const Route = createFileRoute("/tutors")({
       { name: "description", content: "Meet the instructors at Glass Nexus Academy — founder Omolayo Paul Adeyemi, content specialist Amos, UI/UX developer Babatunde Segun, digital marketer Loveeth and more." },
       { property: "og:title", content: "Meet Our Tutors — Glass Nexus Academy" },
       { property: "og:description", content: "The professional instructors behind Glass Nexus Academy — tech educators, full-stack developers, designers and digital marketers." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://glass-nexus-academy.lovable.app/tutors" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Meet Our Tutors — Glass Nexus Academy" },
+      { name: "twitter:description", content: "Professional educators, developers, designers and digital marketers at Glass Nexus Academy." },
     ],
+    links: [{ rel: "canonical", href: "https://glass-nexus-academy.lovable.app/tutors" }],
   }),
   component: Tutors,
 });

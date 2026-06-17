@@ -7,7 +7,15 @@ export const Route = createFileRoute("/pricing")({
     meta: [
       { title: "Pricing — Glass Nexus Academy" },
       { name: "description", content: "Monthly course fees for Python, Web Design, Cyber Security, UI/UX & Video Editing, plus ₦12,000/month O-Level and JAMB online prep." },
+      { property: "og:title", content: "Pricing — Glass Nexus Academy" },
+      { property: "og:description", content: "Transparent monthly pricing for every track. Pay via bank transfer, Flutterwave or Paystack. Payment splitting available." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://glass-nexus-academy.lovable.app/pricing" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Pricing — Glass Nexus Academy" },
+      { name: "twitter:description", content: "Monthly course fees for tech tracks and O-Level/JAMB online classes." },
     ],
+    links: [{ rel: "canonical", href: "https://glass-nexus-academy.lovable.app/pricing" }],
   }),
   component: Pricing,
 });
