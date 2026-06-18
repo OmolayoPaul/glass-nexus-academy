@@ -205,7 +205,7 @@ function Courses() {
                 ))}
               </div>
               <p className="olevel-note">Available for SS1, SS2 &amp; SS3 students. Classes held online via video call. We also help with educational advice and school subject registrations.</p>
-              <a href={wa(olevelMsg)} target="_blank" rel="noopener" className="btn-glow olevel-cta">Enrol now on WhatsApp</a>
+              <a href={wa(olevelMsg)} target="_blank" rel="noopener" className="btn-glow olevel-cta">Enrol now and get started</a>
             </div>
           </div>
         </div>
