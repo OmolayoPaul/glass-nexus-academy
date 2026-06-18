@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
+import { EnrollModal, type EnrollMode } from "@/components/EnrollModal";
+import { useState } from "react";
 
 export const Route = createFileRoute("/courses")({
   head: () => ({
@@ -132,7 +134,7 @@ const SERVICES: Service[] = [
   },
 ];
 
-function CourseCard({ c }: { c: Course }) {
+function CourseCard({ c, onEnrol }: { c: Course; onEnrol: (name: string) => void }) {
   return (
     <div className="course-card">
       <div className="course-header">
@@ -154,14 +156,27 @@ function CourseCard({ c }: { c: Course }) {
           <div className="course-price">{c.price}</div>
           <div className="course-sub">{c.sub}</div>
         </div>
-        <a href={wa(c.whatsappMsg)} target="_blank" rel="noopener" className="course-action-btn">Enrol now →</a>
+        <button type="button" onClick={() => onEnrol(c.name)} className="course-action-btn" style={{ border: "none", cursor: "pointer" }}>Enrol now →</button>
       </div>
     </div>
   );
 }
 
 function Courses() {
-  const olevelMsg = "Hi, I'm interested in the O-Level/JAMB online classes at Glass Nexus Academy.";
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState<EnrollMode>("course");
+  const [selectedCourse, setSelectedCourse] = useState<string | undefined>();
+
+  const openCourse = (name: string) => {
+    setSelectedCourse(name);
+    setModalMode("course");
+    setModalOpen(true);
+  };
+  const openOlevel = () => {
+    setSelectedCourse(undefined);
+    setModalMode("olevel");
+    setModalOpen(true);
+  };
 
   return (
     <SiteLayout>
@@ -178,7 +193,7 @@ function Courses() {
       <section style={{ background: "var(--dark)" }}>
         <div className="s-inner">
           <h2 className="courses-category-title">Tech Course Tracks</h2>
-          <div className="courses-grid">{TECH.map((c) => <CourseCard c={c} key={c.name} />)}</div>
+          <div className="courses-grid">{TECH.map((c) => <CourseCard c={c} key={c.name} onEnrol={openCourse} />)}</div>
         </div>
       </section>
 
@@ -205,7 +220,7 @@ function Courses() {
                 ))}
               </div>
               <p className="olevel-note">Available for SS1, SS2 &amp; SS3 students. Classes held online via video call. We also help with educational advice and school subject registrations.</p>
-              <a href={wa(olevelMsg)} target="_blank" rel="noopener" className="btn-glow olevel-cta">Enrol now and get started</a>
+              <button type="button" onClick={openOlevel} className="btn-glow olevel-cta" style={{ border: "none", cursor: "pointer" }}>Enrol now and get started</button>
             </div>
           </div>
         </div>
@@ -241,6 +256,7 @@ function Courses() {
         <p>Talk to our advisors. We'll help match your career goals to the ideal course or service.</p>
         <Link className="btn-glow" to="/contact">Talk to an Advisor</Link>
       </div>
+      <EnrollModal open={modalOpen} onClose={() => setModalOpen(false)} mode={modalMode} courseName={selectedCourse} />
     </SiteLayout>
   );
 }

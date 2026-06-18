@@ -19,10 +19,33 @@ function Contact() {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
+
+    const fd = new FormData(e.currentTarget);
+    const name = (fd.get("contactName") as string)?.trim() || "";
+    const phone = (fd.get("contactPhone") as string)?.trim() || "";
+    const email = (fd.get("contactEmail") as string)?.trim() || "";
+    const subject = (fd.get("contactSubject") as string)?.trim() || "";
+    const message = (fd.get("contactMsg") as string)?.trim() || "";
+
+    const body = [
+      `New enquiry from Glass Nexus Academy website`,
+      ``,
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      `Email: ${email}`,
+      `Course of interest: ${subject}`,
+      ``,
+      `Message:`,
+      message,
+    ].join("\n");
+
+    const url = `https://wa.me/2349154338312?text=${encodeURIComponent(body)}`;
+    window.open(url, "_blank", "noopener");
+
     setTimeout(() => {
       setSending(false);
       setSubmitted(true);
-    }, 900);
+    }, 600);
   };
 
   return (
@@ -74,48 +97,49 @@ function Contact() {
                   <div className="f-row">
                     <div className="f-group">
                       <label htmlFor="contactName">Full Name *</label>
-                      <input id="contactName" type="text" required placeholder="e.g. Adewale Okafor" />
+                      <input id="contactName" name="contactName" type="text" required maxLength={100} placeholder="e.g. Adewale Okafor" />
                     </div>
                     <div className="f-group">
                       <label htmlFor="contactPhone">Phone Number *</label>
-                      <input id="contactPhone" type="tel" required placeholder="e.g. 0812 345 6789" />
+                      <input id="contactPhone" name="contactPhone" type="tel" required maxLength={20} placeholder="e.g. 0812 345 6789" />
                     </div>
                   </div>
 
                   <div className="f-group" style={{ marginTop: 14 }}>
                     <label htmlFor="contactEmail">Email Address *</label>
-                    <input id="contactEmail" type="email" required placeholder="you@example.com" />
+                    <input id="contactEmail" name="contactEmail" type="email" required maxLength={255} placeholder="you@example.com" />
                   </div>
 
                   <div className="f-group" style={{ marginTop: 14 }}>
                     <label htmlFor="contactSubject">Course of interest *</label>
-                    <select id="contactSubject" required defaultValue="">
+                    <select id="contactSubject" name="contactSubject" required defaultValue="">
                       <option value="" disabled>Select a course...</option>
-                      <option value="python">Python Programming</option>
-                      <option value="webdev">Web Development</option>
-                      <option value="data">Data Analysis</option>
-                      <option value="hardware">Hardware & Repairs</option>
-                      <option value="office">Computer Operations (Microsoft Packages)</option>
-                      <option value="ai">AI & Automation</option>
-                      <option value="cyber">Cybersecurity Basics</option>
+                      <option value="Python Programming">Python Programming</option>
+                      <option value="Web Development">Web Development</option>
+                      <option value="Data Analysis">Data Analysis</option>
+                      <option value="Hardware & Repairs">Hardware & Repairs</option>
+                      <option value="Computer Operations (Microsoft Packages)">Computer Operations (Microsoft Packages)</option>
+                      <option value="AI & Automation">AI & Automation</option>
+                      <option value="Cybersecurity Basics">Cybersecurity Basics</option>
+                      <option value="O-Level / JAMB Online">O-Level / JAMB Online</option>
                     </select>
                   </div>
 
                   <div className="f-group" style={{ marginTop: 14, marginBottom: 20 }}>
                     <label htmlFor="contactMsg">Message *</label>
-                    <textarea id="contactMsg" required placeholder="Tell us what you'd like to know..." />
+                    <textarea id="contactMsg" name="contactMsg" required maxLength={1000} placeholder="Tell us what you'd like to know..." />
                   </div>
 
                   <button className="f-submit" type="submit" disabled={sending}>
-                    {sending ? "Sending message..." : "Send message →"}
+                    {sending ? "Opening WhatsApp..." : "Send message →"}
                   </button>
                 </form>
               ) : (
                 <div className="f-success">
                   <div style={{ width: 64, height: 64, borderRadius: "50%", background: "var(--green-soft)", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--green)", fontSize: "2rem", marginBottom: "1.5rem" }}>✓</div>
-                  <h3 style={{ fontFamily: "var(--font-d)", fontSize: "1.6rem", fontWeight: 800, color: "#fff", lineHeight: 1.2, marginBottom: "0.75rem" }}>Message Received!</h3>
+                  <h3 style={{ fontFamily: "var(--font-d)", fontSize: "1.6rem", fontWeight: 800, color: "#fff", lineHeight: 1.2, marginBottom: "0.75rem" }}>Message Ready!</h3>
                   <p style={{ fontSize: "0.925rem", color: "var(--text-muted)", lineHeight: 1.75, marginBottom: "1.5rem", textAlign: "center" }}>
-                    Thank you for contacting Glass Nexus Academy. Our support team will reach out via WhatsApp or Email within 2 hours.
+                    Your message has been opened in WhatsApp — just press <strong>Send</strong> there and our team will reply within 2 hours.
                   </p>
                   <button onClick={() => setSubmitted(false)} className="f-submit" style={{ maxWidth: 180 }}>Send Another</button>
                 </div>
