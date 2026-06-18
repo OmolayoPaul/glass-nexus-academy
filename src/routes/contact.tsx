@@ -19,10 +19,33 @@ function Contact() {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
+
+    const fd = new FormData(e.currentTarget);
+    const name = (fd.get("contactName") as string)?.trim() || "";
+    const phone = (fd.get("contactPhone") as string)?.trim() || "";
+    const email = (fd.get("contactEmail") as string)?.trim() || "";
+    const subject = (fd.get("contactSubject") as string)?.trim() || "";
+    const message = (fd.get("contactMsg") as string)?.trim() || "";
+
+    const body = [
+      `New enquiry from Glass Nexus Academy website`,
+      ``,
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      `Email: ${email}`,
+      `Course of interest: ${subject}`,
+      ``,
+      `Message:`,
+      message,
+    ].join("\n");
+
+    const url = `https://wa.me/2349154338312?text=${encodeURIComponent(body)}`;
+    window.open(url, "_blank", "noopener");
+
     setTimeout(() => {
       setSending(false);
       setSubmitted(true);
-    }, 900);
+    }, 600);
   };
 
   return (
