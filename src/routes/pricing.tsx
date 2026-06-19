@@ -39,6 +39,7 @@ const PLANS: Plan[] = [
   { name: "Cyber Security", price: "₦30,000", per: "/ month", desc: "Practical cyber security — 2 classes/week (teaching + practical).", feats: ["2 classes/week (teaching + practical)", "Threat detection basics", "Hands-on labs"], msg: "Hi, I'd like to enrol in Cyber Security." },
   { name: "Data Analysis", price: "₦25,000", per: "/ month", desc: "Advanced Excel & SQL — 2 classes/week (teaching + practical).", feats: ["2 classes/week (teaching + practical)", "SQL basics", "Data storytelling"], msg: "Hi, I'd like to enrol in Data Analysis." },
   { name: "O-Level / JAMB Online", price: "₦12,000", per: "/ month", desc: "WAEC · NECO · GCE · JAMB — online for SS1–SS3.", feats: ["Maths, English, F-Maths, ICT…", "Live online classes", "All exam boards covered"], msg: "Hi, I'm interested in the O-Level/JAMB online classes at Glass Nexus Academy." },
+];
 
 function Pricing() {
   const [open, setOpen] = useState<number | null>(0);
