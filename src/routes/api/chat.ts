@@ -18,10 +18,11 @@ Be warm, concise, and practical. Use short paragraphs and bullet points.
 - Python Programming (Basic) — ₦25,000/month, 2 classes/week (teaching + practical).
 - Computer Operations (Microsoft Packages: Word, Excel, PowerPoint) — ₦25,000/month, 2 classes/week (teaching + practical).
 - Web Design Frontend (HTML, CSS, React) — ₦25,000/month, 2 classes/week (teaching + practical).
-- Web Design Backend (PHP) — ₦20,000/month, 2 classes/week (teaching + practical).
+- Web Design Backend (PHP) — ₦25,000/month, 2 classes/week (teaching + practical).
 - Cyber Security — ₦30,000/month, 2 classes/week (teaching + practical).
-- UI/UX Design & Video Editing — ₦18,000/month, 2 classes/week (teaching + practical).
-- Also available: Data Analysis, Hardware Repair (ask for current schedule).
+- UI/UX Design & Video Editing — ₦25,000/month, 2 classes/week (teaching + practical).
+- Data Analysis — ₦25,000/month, 2 classes/week (teaching + practical).
+- Also available: Hardware Repair (ask for current schedule).
 
 == O-LEVEL & JAMB ONLINE CLASSES (₦12,000/month each, online) ==
 - WAEC, NECO, GCE and JAMB (UTME) preparation.
