@@ -31,7 +31,7 @@ const wa = (msg: string) => `https://wa.me/2349154338312?text=${encodeURICompone
 
 type Plan = { name: string; price: string; per: string; desc: string; feats: string[]; featured?: boolean; msg: string };
 const PLANS: Plan[] = [
-  { name: "Python Programming", price: "₦15,000", per: "/ month", desc: "Basic Python — 1 class per week.", feats: ["1 class / week", "Beginner-friendly modules", "Projects + certificate"], msg: "Hi, I'd like to enrol in Python Programming." },
+  { name: "Python Programming", price: "₦25,000", per: "/ month", desc: "Basic Python — 2 classes/week (teaching + practical).", feats: ["2 classes/week (teaching + practical)", "Beginner-friendly modules", "Projects + certificate"], msg: "Hi, I'd like to enrol in Python Programming." },
   { name: "Computer Operations", price: "₦15,000", per: "/ month", desc: "Microsoft Office packages — 1 class + 1 practical per week.", feats: ["Word · Excel · PowerPoint", "1 class + 1 practical / week", "Beginner-friendly"], msg: "Hi, I'd like to enrol in Computer Operations (Microsoft Packages)." },
   { name: "Web Design — Frontend", price: "₦15,000", per: "/ month", desc: "HTML, CSS, React — 60 mins per class.", feats: ["HTML · CSS · React", "Responsive design", "Portfolio projects"], featured: true, msg: "Hi, I'd like to enrol in Frontend Web Design." },
   { name: "Web Design — Backend", price: "₦20,000", per: "/ month", desc: "PHP & MySQL — 60 mins per class.", feats: ["PHP fundamentals", "MySQL & databases", "Dynamic web apps"], msg: "Hi, I'd like to enrol in Backend Web Design (PHP)." },
