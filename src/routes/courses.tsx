@@ -58,7 +58,7 @@ const TECH: Course[] = [
     desc: "Server-side PHP development, working with databases, building dynamic websites and admin panels.",
     icon: "ti-server", iconBg: "rgba(83,74,183,0.15)", iconColor: "#9B8FFF",
     features: ["2 classes/week (teaching + practical)", "MySQL databases", "Dynamic web apps"],
-    price: "₦20,000 / month", sub: "2 classes/week (teaching + practical)",
+    price: "₦25,000 / month", sub: "2 classes/week (teaching + practical)",
     whatsappMsg: "Hi, I'm interested in the Backend Web Design (PHP) course at Glass Nexus Academy.",
   },
   {
