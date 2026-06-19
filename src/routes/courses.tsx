@@ -33,8 +33,8 @@ const TECH: Course[] = [
     name: "Python Programming (Basic)",
     desc: "Build a strong foundation in Python — variables, logic, functions, OOP and small automation scripts.",
     icon: "ti-brand-python", iconBg: "rgba(24,95,165,0.15)", iconColor: "#5BA4F5",
-    features: ["1 class per week", "Beginner-friendly", "Hands-on mini projects"],
-    price: "₦15,000 / month", sub: "1 class/week",
+    features: ["2 classes/week (teaching + practical)", "Beginner-friendly", "Hands-on mini projects"],
+    price: "₦25,000 / month", sub: "2 classes/week (teaching + practical)",
     whatsappMsg: "Hi, I'm interested in the Python Programming course at Glass Nexus Academy.",
   },
   {
