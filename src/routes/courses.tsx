@@ -74,7 +74,7 @@ const TECH: Course[] = [
     desc: "Design beautiful interfaces in Figma and create polished video content with professional editing tools.",
     icon: "ti-palette", iconBg: "rgba(255,140,66,0.15)", iconColor: "#FF8C42",
     features: ["2 classes/week (teaching + practical)", "Premiere / CapCut", "Real client projects"],
-    price: "₦18,000 / month", sub: "2 classes/week (teaching + practical)",
+    price: "₦25,000 / month", sub: "2 classes/week (teaching + practical)",
     whatsappMsg: "Hi, I'm interested in the UI/UX & Video Editing course at Glass Nexus Academy.",
   },
   {
