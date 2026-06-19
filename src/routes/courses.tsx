@@ -58,7 +58,7 @@ const TECH: Course[] = [
     desc: "Server-side PHP development, working with databases, building dynamic websites and admin panels.",
     icon: "ti-server", iconBg: "rgba(83,74,183,0.15)", iconColor: "#9B8FFF",
     features: ["2 classes/week (teaching + practical)", "MySQL databases", "Dynamic web apps"],
-    price: "₦20,000 / month", sub: "2 classes/week (teaching + practical)",
+    price: "₦25,000 / month", sub: "2 classes/week (teaching + practical)",
     whatsappMsg: "Hi, I'm interested in the Backend Web Design (PHP) course at Glass Nexus Academy.",
   },
   {
@@ -74,7 +74,7 @@ const TECH: Course[] = [
     desc: "Design beautiful interfaces in Figma and create polished video content with professional editing tools.",
     icon: "ti-palette", iconBg: "rgba(255,140,66,0.15)", iconColor: "#FF8C42",
     features: ["2 classes/week (teaching + practical)", "Premiere / CapCut", "Real client projects"],
-    price: "₦18,000 / month", sub: "2 classes/week (teaching + practical)",
+    price: "₦25,000 / month", sub: "2 classes/week (teaching + practical)",
     whatsappMsg: "Hi, I'm interested in the UI/UX & Video Editing course at Glass Nexus Academy.",
   },
   {
@@ -82,7 +82,7 @@ const TECH: Course[] = [
     desc: "Clean, analyse and visualise data using Advanced Excel and basic SQL. In high demand across industries.",
     icon: "ti-chart-bar", iconBg: "rgba(83,74,183,0.15)", iconColor: "#9B8FFF",
     features: ["2 classes/week (teaching + practical)", "SQL basics", "Data storytelling"],
-    price: "Contact for fee", sub: "2 classes/week (teaching + practical)",
+    price: "₦25,000 / month", sub: "2 classes/week (teaching + practical)",
     whatsappMsg: "Hi, I'm interested in the Data Analysis course at Glass Nexus Academy.",
   },
   {
