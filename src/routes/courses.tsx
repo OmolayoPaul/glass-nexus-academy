@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { EnrollModal, type EnrollMode } from "@/components/EnrollModal";
+import { COURSES as COURSE_DETAILS } from "@/lib/courseData";
 import { useState } from "react";
 
 export const Route = createFileRoute("/courses")({
