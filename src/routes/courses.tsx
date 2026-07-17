@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { EnrollModal, type EnrollMode } from "@/components/EnrollModal";
+import { COURSES as COURSE_DETAILS } from "@/lib/courseData";
 import { useState } from "react";
 
 export const Route = createFileRoute("/courses")({
@@ -135,13 +136,25 @@ const SERVICES: Service[] = [
 ];
 
 function CourseCard({ c, onEnrol }: { c: Course; onEnrol: (name: string) => void }) {
+  const detail = COURSE_DETAILS.find((d) => d.name === c.name);
   return (
     <div className="course-card">
       <div className="course-header">
         <div className="course-icon" style={{ background: c.iconBg, color: c.iconColor }}>
           <i className={`ti ${c.icon}`} />
         </div>
-        <h3 className="course-name">{c.name}</h3>
+        {detail ? (
+          <Link
+            to="/courses/$slug"
+            params={{ slug: detail.slug }}
+            className="course-name"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            {c.name}
+          </Link>
+        ) : (
+          <h3 className="course-name">{c.name}</h3>
+        )}
         <p className="course-desc">{c.desc}</p>
         <ul className="course-features">
           {c.features.map((f) => (
@@ -156,7 +169,19 @@ function CourseCard({ c, onEnrol }: { c: Course; onEnrol: (name: string) => void
           <div className="course-price">{c.price}</div>
           <div className="course-sub">{c.sub}</div>
         </div>
-        <button type="button" onClick={() => onEnrol(c.name)} className="course-action-btn" style={{ border: "none", cursor: "pointer" }}>Enrol now →</button>
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          {detail && (
+            <Link
+              to="/courses/$slug"
+              params={{ slug: detail.slug }}
+              className="p-btn out"
+              style={{ textAlign: "center", padding: "10px 14px", fontSize: ".8rem" }}
+            >
+              View details →
+            </Link>
+          )}
+          <button type="button" onClick={() => onEnrol(c.name)} className="course-action-btn" style={{ border: "none", cursor: "pointer" }}>Enrol now →</button>
+        </div>
       </div>
     </div>
   );
