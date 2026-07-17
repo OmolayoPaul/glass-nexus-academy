@@ -136,6 +136,7 @@ const SERVICES: Service[] = [
 ];
 
 function CourseCard({ c, onEnrol }: { c: Course; onEnrol: (name: string) => void }) {
+  const detail = COURSE_DETAILS.find((d) => d.name === c.name);
   return (
     <div className="course-card">
       <div className="course-header">
