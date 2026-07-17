@@ -56,11 +56,13 @@ function CourseNotFound() {
 }
 
 function CourseDetailPage() {
-  const { course } = Route.useLoaderData();
+  const { course } = Route.useLoaderData() as { course: CourseDetail };
   const [modalOpen, setModalOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  const related = course.related.map((s) => COURSES.find((c) => c.slug === s)).filter(Boolean) as typeof COURSES;
+  const related = course.related
+    .map((s: string) => COURSES.find((c) => c.slug === s))
+    .filter((c): c is CourseDetail => Boolean(c));
 
   return (
     <SiteLayout>
