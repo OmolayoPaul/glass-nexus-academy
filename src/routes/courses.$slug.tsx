@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { EnrollModal } from "@/components/EnrollModal";
-import { COURSES, getCourse } from "@/lib/courseData";
+import { COURSES, getCourse, type CourseDetail } from "@/lib/courseData";
 
 export const Route = createFileRoute("/courses/$slug")({
   loader: ({ params }) => {
