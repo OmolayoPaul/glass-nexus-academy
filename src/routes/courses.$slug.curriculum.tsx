@@ -3,6 +3,7 @@ import { useState } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { EnrollModal } from "@/components/EnrollModal";
 import { getCourse, type CourseDetail } from "@/lib/courseData";
+import { CourseTutor } from "@/components/CourseTutor";
 
 export const Route = createFileRoute("/courses/$slug/curriculum")({
   loader: ({ params }) => {
@@ -201,6 +202,22 @@ function CurriculumPage() {
           </div>
         </div>
       </section>
+
+      {/* AI TUTOR */}
+      <section style={{ background: "var(--dark)" }}>
+        <div className="s-inner">
+          <div className="sec-wrap">
+            <span className="sec-chip">AI Tutor</span>
+            <h2 className="sec-title">Ask Nexa anything about {course.name}</h2>
+            <p className="s-sub" style={{ maxWidth: 640 }}>
+              Your personal AI tutor knows this course's full curriculum, projects, careers and certification. Ask a question below.
+            </p>
+          </div>
+          <CourseTutor slug={course.slug} courseName={course.name} />
+        </div>
+      </section>
+
+
 
       <div className="cta-banner">
         <h2>Ready to start <span style={{ color: "var(--green)" }}>{course.name}?</span></h2>
