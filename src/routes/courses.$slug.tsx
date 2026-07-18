@@ -89,6 +89,7 @@ function CourseDetailPage() {
           </div>
           <div style={{ marginTop: "1.75rem", display: "flex", gap: 12, flexWrap: "wrap" }}>
             <button type="button" className="btn-glow" style={{ border: "none", cursor: "pointer" }} onClick={() => setModalOpen(true)}>Enrol now</button>
+            <Link to="/courses/$slug/curriculum" params={{ slug: course.slug }} className="p-btn" style={{ display: "inline-block" }}>View full curriculum →</Link>
             <Link to="/courses" className="p-btn out" style={{ display: "inline-block" }}>← All courses</Link>
           </div>
           <p className="cd-installment">💳 {course.installment}</p>
