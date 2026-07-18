@@ -17,6 +17,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
+import { Route as CoursesSlugCurriculumRouteImport } from './routes/courses.$slug.curriculum'
 
 const TutorsRoute = TutorsRouteImport.update({
   id: '/tutors',
@@ -58,6 +59,11 @@ const ApiChatRoute = ApiChatRouteImport.update({
   path: '/api/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoursesSlugCurriculumRoute = CoursesSlugCurriculumRouteImport.update({
+  id: '/curriculum',
+  path: '/curriculum',
+  getParentRoute: () => CoursesSlugRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -67,7 +73,8 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/tutors': typeof TutorsRoute
   '/api/chat': typeof ApiChatRoute
-  '/courses/$slug': typeof CoursesSlugRoute
+  '/courses/$slug': typeof CoursesSlugRouteWithChildren
+  '/courses/$slug/curriculum': typeof CoursesSlugCurriculumRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -77,7 +84,8 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/tutors': typeof TutorsRoute
   '/api/chat': typeof ApiChatRoute
-  '/courses/$slug': typeof CoursesSlugRoute
+  '/courses/$slug': typeof CoursesSlugRouteWithChildren
+  '/courses/$slug/curriculum': typeof CoursesSlugCurriculumRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -88,7 +96,8 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/tutors': typeof TutorsRoute
   '/api/chat': typeof ApiChatRoute
-  '/courses/$slug': typeof CoursesSlugRoute
+  '/courses/$slug': typeof CoursesSlugRouteWithChildren
+  '/courses/$slug/curriculum': typeof CoursesSlugCurriculumRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/tutors'
     | '/api/chat'
     | '/courses/$slug'
+    | '/courses/$slug/curriculum'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/tutors'
     | '/api/chat'
     | '/courses/$slug'
+    | '/courses/$slug/curriculum'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/tutors'
     | '/api/chat'
     | '/courses/$slug'
+    | '/courses/$slug/curriculum'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -191,15 +203,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiChatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/courses/$slug/curriculum': {
+      id: '/courses/$slug/curriculum'
+      path: '/curriculum'
+      fullPath: '/courses/$slug/curriculum'
+      preLoaderRoute: typeof CoursesSlugCurriculumRouteImport
+      parentRoute: typeof CoursesSlugRoute
+    }
   }
 }
 
+interface CoursesSlugRouteChildren {
+  CoursesSlugCurriculumRoute: typeof CoursesSlugCurriculumRoute
+}
+
+const CoursesSlugRouteChildren: CoursesSlugRouteChildren = {
+  CoursesSlugCurriculumRoute: CoursesSlugCurriculumRoute,
+}
+
+const CoursesSlugRouteWithChildren = CoursesSlugRoute._addFileChildren(
+  CoursesSlugRouteChildren,
+)
+
 interface CoursesRouteChildren {
-  CoursesSlugRoute: typeof CoursesSlugRoute
+  CoursesSlugRoute: typeof CoursesSlugRouteWithChildren
 }
 
 const CoursesRouteChildren: CoursesRouteChildren = {
-  CoursesSlugRoute: CoursesSlugRoute,
+  CoursesSlugRoute: CoursesSlugRouteWithChildren,
 }
 
 const CoursesRouteWithChildren =
@@ -217,13 +248,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
