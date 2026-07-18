@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
+import { Route as ApiTutorRouteImport } from './routes/api/tutor'
 import { Route as ApiChatRouteImport } from './routes/api/chat'
 import { Route as CoursesSlugCurriculumRouteImport } from './routes/courses.$slug.curriculum'
 
@@ -54,6 +55,11 @@ const CoursesSlugRoute = CoursesSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => CoursesRoute,
 } as any)
+const ApiTutorRoute = ApiTutorRouteImport.update({
+  id: '/api/tutor',
+  path: '/api/tutor',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiChatRoute = ApiChatRouteImport.update({
   id: '/api/chat',
   path: '/api/chat',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/tutors': typeof TutorsRoute
   '/api/chat': typeof ApiChatRoute
+  '/api/tutor': typeof ApiTutorRoute
   '/courses/$slug': typeof CoursesSlugRouteWithChildren
   '/courses/$slug/curriculum': typeof CoursesSlugCurriculumRoute
 }
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/tutors': typeof TutorsRoute
   '/api/chat': typeof ApiChatRoute
+  '/api/tutor': typeof ApiTutorRoute
   '/courses/$slug': typeof CoursesSlugRouteWithChildren
   '/courses/$slug/curriculum': typeof CoursesSlugCurriculumRoute
 }
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/tutors': typeof TutorsRoute
   '/api/chat': typeof ApiChatRoute
+  '/api/tutor': typeof ApiTutorRoute
   '/courses/$slug': typeof CoursesSlugRouteWithChildren
   '/courses/$slug/curriculum': typeof CoursesSlugCurriculumRoute
 }
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/tutors'
     | '/api/chat'
+    | '/api/tutor'
     | '/courses/$slug'
     | '/courses/$slug/curriculum'
   fileRoutesByTo: FileRoutesByTo
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/tutors'
     | '/api/chat'
+    | '/api/tutor'
     | '/courses/$slug'
     | '/courses/$slug/curriculum'
   id:
@@ -131,6 +142,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/tutors'
     | '/api/chat'
+    | '/api/tutor'
     | '/courses/$slug'
     | '/courses/$slug/curriculum'
   fileRoutesById: FileRoutesById
@@ -143,6 +155,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   TutorsRoute: typeof TutorsRoute
   ApiChatRoute: typeof ApiChatRoute
+  ApiTutorRoute: typeof ApiTutorRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -196,6 +209,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoursesSlugRouteImport
       parentRoute: typeof CoursesRoute
     }
+    '/api/tutor': {
+      id: '/api/tutor'
+      path: '/api/tutor'
+      fullPath: '/api/tutor'
+      preLoaderRoute: typeof ApiTutorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/chat': {
       id: '/api/chat'
       path: '/api/chat'
@@ -244,17 +264,8 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   TutorsRoute: TutorsRoute,
   ApiChatRoute: ApiChatRoute,
+  ApiTutorRoute: ApiTutorRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

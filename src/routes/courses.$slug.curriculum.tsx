@@ -3,6 +3,7 @@ import { useState } from "react";
 import { SiteLayout } from "@/components/SiteLayout";
 import { EnrollModal } from "@/components/EnrollModal";
 import { getCourse, type CourseDetail } from "@/lib/courseData";
+import { CourseTutor } from "@/components/CourseTutor";
 
 export const Route = createFileRoute("/courses/$slug/curriculum")({
   loader: ({ params }) => {
