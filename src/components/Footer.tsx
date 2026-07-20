@@ -14,6 +14,7 @@ export function Footer() {
       <ul className="f-links">
         <li><Link to="/courses">Courses</Link></li>
         <li><Link to="/tutors">Tutors</Link></li>
+        <li><Link to="/internship">Internship</Link></li>
         <li><Link to="/about">Results</Link></li>
         <li><Link to="/pricing">Pricing</Link></li>
         <li><Link to="/contact">Contact</Link></li>

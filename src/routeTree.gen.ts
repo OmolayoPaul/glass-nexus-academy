@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TutorsRouteImport } from './routes/tutors'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as InternshipRouteImport } from './routes/internship'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -28,6 +29,11 @@ const TutorsRoute = TutorsRouteImport.update({
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InternshipRoute = InternshipRouteImport.update({
+  id: '/internship',
+  path: '/internship',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoursesRoute = CoursesRouteImport.update({
@@ -76,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
+  '/internship': typeof InternshipRoute
   '/pricing': typeof PricingRoute
   '/tutors': typeof TutorsRoute
   '/api/chat': typeof ApiChatRoute
@@ -88,6 +95,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
+  '/internship': typeof InternshipRoute
   '/pricing': typeof PricingRoute
   '/tutors': typeof TutorsRoute
   '/api/chat': typeof ApiChatRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
+  '/internship': typeof InternshipRoute
   '/pricing': typeof PricingRoute
   '/tutors': typeof TutorsRoute
   '/api/chat': typeof ApiChatRoute
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/courses'
+    | '/internship'
     | '/pricing'
     | '/tutors'
     | '/api/chat'
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/courses'
+    | '/internship'
     | '/pricing'
     | '/tutors'
     | '/api/chat'
@@ -139,6 +150,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/courses'
+    | '/internship'
     | '/pricing'
     | '/tutors'
     | '/api/chat'
@@ -152,6 +164,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRouteWithChildren
+  InternshipRoute: typeof InternshipRoute
   PricingRoute: typeof PricingRoute
   TutorsRoute: typeof TutorsRoute
   ApiChatRoute: typeof ApiChatRoute
@@ -172,6 +185,13 @@ declare module '@tanstack/react-router' {
       path: '/pricing'
       fullPath: '/pricing'
       preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/internship': {
+      id: '/internship'
+      path: '/internship'
+      fullPath: '/internship'
+      preLoaderRoute: typeof InternshipRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/courses': {
@@ -261,6 +281,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   CoursesRoute: CoursesRouteWithChildren,
+  InternshipRoute: InternshipRoute,
   PricingRoute: PricingRoute,
   TutorsRoute: TutorsRoute,
   ApiChatRoute: ApiChatRoute,
