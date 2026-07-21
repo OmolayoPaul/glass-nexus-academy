@@ -49,7 +49,7 @@ const STEPS = [
 
 const CHECKLIST = [
   "Full name, phone number, and email address",
-  "Preferred role (pick one from the six tracks above)",
+  "Preferred role (pick one from the eight tracks above)",
   "2–4 sentences on why the role fits you",
   "Portfolio, GitHub, Behance, or coursework link (optional but recommended)",
   "Graduates: mention your Glass Nexus track and completion date",
