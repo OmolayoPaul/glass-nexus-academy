@@ -203,7 +203,7 @@ function Internship() {
           <div className="sec-wrap" style={{ paddingTop: 0 }}>
             <span className="sec-chip">Available Roles</span>
             <h2 className="sec-title">Pick where you fit</h2>
-            <p className="sec-sub">Six tracks. Real tasks. Direct mentorship from day one.</p>
+            <p className="sec-sub">Eight tracks. Real tasks. Direct mentorship from day one.</p>
           </div>
           <div className="courses-grid">
             {ROLES.map((r) => (
