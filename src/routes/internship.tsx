@@ -27,7 +27,7 @@ const GLANCE = [
   { icon: "ti-calendar-time", num: "12 weeks", dsc: "Duration (renewable)" },
   { icon: "ti-certificate", num: "Unpaid", dsc: "Certificate + Mentorship" },
   { icon: "ti-clock", num: "3 days/week", dsc: "Minimum commitment" },
-  { icon: "ti-users", num: "6", dsc: "Roles available" },
+  { icon: "ti-users", num: "8", dsc: "Roles available" },
 ];
 
 const ROLES = [
@@ -37,6 +37,8 @@ const ROLES = [
   { name: "Data / Admin Intern", desc: "Manages student records, enrolment tracking, and certificates.", icon: "ti-database", iconBg: "rgba(83,74,183,0.15)", iconColor: "#9B8FFF" },
   { name: "Hardware & Repairs Intern", desc: "Handles walk-in repairs and lab equipment maintenance.", icon: "ti-cpu", iconBg: "rgba(186,117,23,0.15)", iconColor: "#F5C542" },
   { name: "Client Support / Freelance Assistant Intern", desc: "Supports client web projects under mentorship.", icon: "ti-headset", iconBg: "rgba(14,165,233,0.15)", iconColor: "#0EA5E9" },
+  { name: "Community Management Intern", desc: "Owns engagement and moderation across our community spaces — WhatsApp groups, comments, and alumni network.", icon: "ti-messages", iconBg: "rgba(236,72,153,0.15)", iconColor: "#EC4899" },
+  { name: "Graphics Design Intern", desc: "Owns our visual assets — flyers, brand materials, and templates — keeping design consistent everywhere.", icon: "ti-palette", iconBg: "rgba(168,85,247,0.15)", iconColor: "#A855F7" },
 ];
 
 const STEPS = [
