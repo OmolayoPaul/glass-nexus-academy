@@ -361,6 +361,7 @@ footer p { font-size:13px; color:var(--text-dim); }
   .hero-float { display: none; }
   .courses-grid { grid-template-columns: repeat(2, 1fr); }
   .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .bundle-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .zoom-grid { grid-template-columns: repeat(2, 1fr); }
   .olevel-grid { grid-template-columns: repeat(2, 1fr); }
