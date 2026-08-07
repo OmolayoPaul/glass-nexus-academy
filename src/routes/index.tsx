@@ -96,6 +96,77 @@ function Index() {
         </div>
       </section>
 
+      {/* FOUNDING COHORT BANNER */}
+      <section className="founding-section">
+        <div className="s-inner">
+          <div className="founding-card">
+            <div className="founding-glow" />
+            <span className="founding-badge"><span className="pulse" /> Founding Cohort — Now Enrolling</span>
+            <h2 className="founding-title">Be Among Our First Students</h2>
+            <p className="founding-sub">As a founding cohort student, you get smaller class sizes, direct access to instructors, and founding-member pricing that won't be repeated once we scale.</p>
+            <Link to="/contact" className="btn-primary"><i className="ti ti-sparkles" /> Claim your founding seat</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* MEET THE FOUNDER */}
+      <section className="founder-section">
+        <div className="s-inner founder-inner">
+          <div className="founder-photo">
+            <div className="founder-photo-ring">
+              <div className="founder-photo-bg">
+                <i className="ti ti-user" />
+                <span>Omolayo Paul</span>
+              </div>
+            </div>
+          </div>
+          <div className="founder-content">
+            <span className="eyebrow">Meet the Founder</span>
+            <h2 className="s-title founder-title">Taught By Someone Who's Actually Done It</h2>
+            <p className="founder-body">Glass Nexus Academy is led by Omolayo Paul Adeyemi, a First Class Computer Science graduate from Tai Solarin University of Education (TASUED) and recipient of the 2023 NNPC/Chevron Nigeria JV National University Scholarship. He currently teaches ICT at Bimron Comprehensive College and has built and shipped real production software — from booking systems to fintech platforms — for clients across Lagos.</p>
+            <div className="founder-badges">
+              <span className="founder-pill"><i className="ti ti-award" /> First Class Graduate</span>
+              <span className="founder-pill"><i className="ti ti-certificate" /> NNPC/Chevron Scholar</span>
+              <span className="founder-pill"><i className="ti ti-code" /> Active Software Developer</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY THIS SKILL PAYS */}
+      <section className="pays-section">
+        <div className="s-inner">
+          <div className="sec-wrap">
+            <span className="sec-chip">Why this skill pays</span>
+            <h2 className="sec-title">The numbers behind the demand</h2>
+            <p className="sec-sub">Industry data that shows why tech skills are one of the smartest investments you can make right now.</p>
+          </div>
+          <div className="pays-grid">
+            <div className="pays-card">
+              <div className="pays-icon"><i className="ti ti-currency-naira" /></div>
+              <div className="pays-value">₦120K–₦400K/month</div>
+              <div className="pays-label">Nigerian data analyst salary range (entry to senior level)</div>
+            </div>
+            <div className="pays-card">
+              <div className="pays-icon"><i className="ti ti-world-dollar" /></div>
+              <div className="pays-value">$1,500–$5,000/month</div>
+              <div className="pays-label">Remote analyst roles for Africans with the right skills</div>
+            </div>
+            <div className="pays-card">
+              <div className="pays-icon"><i className="ti ti-brain" /></div>
+              <div className="pays-value">70%+</div>
+              <div className="pays-label">Developers now expected to use AI tools daily in tech roles</div>
+            </div>
+            <div className="pays-card">
+              <div className="pays-icon"><i className="ti ti-building-bank" /></div>
+              <div className="pays-value">10+ industries</div>
+              <div className="pays-label">Banking, fintech, e-commerce, health, telecom all hiring tech-skilled workers in Nigeria</div>
+            </div>
+          </div>
+          <p className="pays-source">Source: Nigerian job boards, LinkedIn, Glassdoor. Individual results depend on effort and market conditions.</p>
+        </div>
+      </section>
+
       {/* STRIP */}
       <div className="strip-wrap">
         <div className="strip-track">
