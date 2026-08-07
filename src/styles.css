@@ -383,7 +383,10 @@ footer p { font-size:13px; color:var(--text-dim); }
   .hero-btns { width: 100%; }
   .hero-btns .btn-primary, .hero-btns .btn-ghost { flex: 1; justify-content: center; padding: 13px 18px; font-size: 14px; }
   .page-hero { padding: 5rem 5% 2.5rem; min-height: auto; }
-  .courses-grid, .pricing-grid, .services-grid, .zoom-grid, .olevel-grid { grid-template-columns: 1fr; }
+  .courses-grid, .pricing-grid, .services-grid, .zoom-grid, .olevel-grid, .bundle-grid { grid-template-columns: 1fr; }
+  .bundle-grid { padding: 0 1rem 3rem; }
+  .bundle-card { padding: 1.75rem; }
+  .bundle-price { font-size: 2rem; }
   .courses-grid { gap: 1rem; }
   .course-card { padding: 1.5rem; min-height: auto; }
   .p-card { padding: 1.5rem; }
